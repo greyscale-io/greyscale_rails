@@ -1,5 +1,7 @@
 require "greyscale_rails/engine"
-require 'greyscale_rails/railtie' if defined? Rails
+require 'greyscale_record'
+require 'hana'
+require 'greyscale_rails/railtie'
 
 module GreyscaleRails
   autoload :Patchable,  "greyscale_rails/patchable"

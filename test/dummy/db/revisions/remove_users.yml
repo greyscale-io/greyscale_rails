@@ -1,0 +1,4 @@
+patch:
+  - op: replace
+    path: /users
+    value: {}

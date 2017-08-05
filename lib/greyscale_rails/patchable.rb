@@ -3,22 +3,29 @@ module GreyscaleRails
     extend ActiveSupport::Concern
 
     included do
-      before_filter :apply_patch
-      after_filter  :remove_patch
+      before_action :apply_patch
+      after_action  :remove_patch
 
       def apply_patch
         revision = params[:revision]
 
         if revision.present?
 
-          patch_json = patch_driver.load! revision
-          patch = Hana::Patch.new( JSON.parse( patch_json ) )
+          definition = patch_driver.load! revision
+          
+          patch = Hana::Patch.new( definition[:patch] )
 
           GreyscaleRecord::Base.data_store.apply_patch patch
+
+          Rails.logger.debug "Aplying patch: #{patch.inspect}"
         end
+      rescue => e
+        Rails.logger.error "Failed to apply patch #{revision}: #{e}"
+
+        GreyscaleRecord::Base.data_store.remove_patch
       end
 
-      def remove_patch 
+      def remove_patch
         GreyscaleRecord::Base.data_store.remove_patch
       end
 

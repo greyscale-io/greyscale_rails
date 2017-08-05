@@ -1,0 +1,16 @@
+development:
+  driver: yaml
+  data_root: db/fixtures
+  revision_root: db/revisions
+  live_reload: true
+
+test:
+  driver: yaml
+  data_root: test/db/fixtures
+
+production:
+  driver: greyscale
+  data_root: http://api.greyscale.io
+  revision_root: http://revisions.greyscale.io
+  app_id: <APP_ID>
+  app_key: <APP_KEY>
