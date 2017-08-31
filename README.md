@@ -38,6 +38,7 @@ test:
   driver: yaml
   data_root: test/db/fixtures
 
+# currently not supported.
 production:
   driver: greyscale
   data_root: http://api.greyscale.io
