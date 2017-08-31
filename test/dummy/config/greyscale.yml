@@ -6,7 +6,9 @@ development:
 
 test:
   driver: yaml
-  data_root: test/db/fixtures
+  data_root: test/dummy/db/fixtures
+  revision_root: test/dummy/db/revisions
+  live_reload: true
 
 production:
   driver: greyscale

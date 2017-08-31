@@ -19,4 +19,6 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", ">= 5.0.0"
   s.add_dependency "greyscale_record", ">= 1.0.0"
   s.add_dependency "hana"
+
+  s.add_development_dependency "simplecov"
 end
