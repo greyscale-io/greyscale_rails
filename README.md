@@ -38,7 +38,7 @@ test:
   driver: yaml
   data_root: test/db/fixtures
 
-# currently not supported.
+# in progress. For now production should use yaml or your own API with drivers
 production:
   driver: greyscale
   data_root: http://api.greyscale.io
@@ -51,7 +51,7 @@ Here's what all the fields are:
 
 * `driver`: tells the application to load the proper data fetcher. The options are
   * `yaml`: will load yaml files from your local file system folder, specified by `data_root`
-  * `greyscale`: will load data from a remote server that complies to the Greyscale.io API standard
+  * `greyscale`: will load data from a remote server that complies to the Greyscale.io API standard (in progress)
 * `data_root`: the root path of the source from which you want to load your data
 * `revision_root`: the root path of the source from which you load data [previews](#patchable)
 * `app_id`: Your app's Greyscale.io API id
