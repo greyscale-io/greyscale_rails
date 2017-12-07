@@ -18,6 +18,7 @@ module GreyscaleRails
         GreyscaleRails.patch_driver = config.greyscale.patch_driver
       end
 
+      GreyscaleRecord.live_reload = config.greyscale.live_reload
     end
 
     private
@@ -34,6 +35,8 @@ module GreyscaleRails
         config.greyscale.patch_driver = data_driver yaml.merge( data_root: yaml[ :revision_root ] )
       end
 
+      config.greyscale.live_reload = yaml[ :live_reload ] || false
+
     rescue => e
       raise "Failed to process #{config.greyscale.config_path}. Make sure the file exists and is not malformed. Error: \"#{e}\""
     end
@@ -47,7 +50,7 @@ module GreyscaleRails
       root = yaml[ :data_root ]
 
       driver_class = DRIVER_TYPES[type]
-      raise "Grreyscale Rails error: #{type} is not a valid driver. Please choose from: #{DRIVER_TYPES.keys.join(", ")}" unless driver_class
+      raise "Greyscale Rails error: #{type} is not a valid driver. Please choose from: #{DRIVER_TYPES.keys.join(", ")}" unless driver_class
 
       driver = driver_class.new root
 

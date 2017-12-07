@@ -53,6 +53,7 @@ Here's what all the fields are:
   * `greyscale`: will load data from a remote server that complies to the Greyscale.io API standard
 * `data_root`: the root path of the source from which you want to load your data
 * `revision_root`: the root path of the source from which you load data [previews](#patchable)
+* `live_reload`: reloads the data from source on every page load. Not recommended in production.
 * `app_id`: Your app's Greyscale.io API id
 * `app_key`: Your app's Greyscale.io API key
 
